@@ -4,7 +4,7 @@
 	var mySidebar = function(){
 	return{
 		restrict: 'E',
-		replace:true,
+		replace: true,
 		templateUrl: 'sideBar.html',
 
 		controller:function($scope,$rootScope){
