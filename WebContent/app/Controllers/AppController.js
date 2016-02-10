@@ -2,17 +2,14 @@
 
 	var app = angular.module("YTapp");
 	
-	var AppController = function($scope,$controller,navigateTabs){
+	var AppController = function($scope,$controller,navigateTabsService){
 		$scope.useful = {};
 		$scope.list={};
 
 
-
-
-		
 		$scope.closeUser = function(username){
 
-			navigateTabs.redirect($scope.list,username);
+			navigateTabsService.redirect($scope.list,username);
 			delete $scope.list[username];
 			$scope.$apply();			
 		}

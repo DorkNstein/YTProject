@@ -1,20 +1,23 @@
 (function(){
 
 	var app = angular.module("YTapp");
-	var myBookmarkTag = function(){
+	var syCloseTag = function(){
 		return{
 			restrict: 'A',
 			scope: {
-				fn: "&myBookmarkTag"
+				fn:"&syCloseTag"
 			},
 			link: function(scope,element,attrs){
 				element.on("click",function(){
-				scope.fn();
+					console.log("closing");
+					scope.fn();
 				});
 			}
 		}
 
 	};
-	app.directive("myBookmarkTag",myBookmarkTag);
+
+
+	app.directive("syCloseTag",syCloseTag);
 
 })();

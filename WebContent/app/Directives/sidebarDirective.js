@@ -1,12 +1,11 @@
 (function(){
 	var app = angular.module("YTapp");
 
-	var mySidebar = function(){
+	var sySidebar = function(){
 	return{
 		restrict: 'E',
-		replace: true,
-		templateUrl: 'sideBar.html',
-
+		replace:true,
+		templateUrl: '../../Views/sidebar.html',
 		controller:function($scope,$rootScope){
 			
 		
@@ -24,7 +23,7 @@
 
 	}
 
-	app.directive("mySidebar",mySidebar);
+	app.directive("sySidebar",sySidebar);
 
 
 })();
