@@ -1,7 +1,7 @@
 (function(){
 var app = angular.module("YTapp");
 
-	var HeaderController = function($rootScope,$scope,$interval,YTservice,$location,$timeout){
+	var HeaderController = function($rootScope,$scope,$interval,$location){
 		
 		
 		function init(){
@@ -20,7 +20,7 @@ var app = angular.module("YTapp");
 			}
 			else
 			{
-				$rootScope.favs = JSON.parse(localStorage.getItem("bookmarks"));//['sawyer7mage','vikkstar123HD','Aureylian','Graser10','markiplierGAME','PrestonPlayz','MrWoofless','ThatMumboJumbo','Rdilui2'];
+				$rootScope.favs = JSON.parse(localStorage.getItem("bookmarks"));
 			}	
 			
 
@@ -77,6 +77,6 @@ var app = angular.module("YTapp");
 
 	};
 	
-app.controller("HeaderController",["$rootScope","$scope","$interval","YTservice","$location","$timeout",HeaderController]);
+app.controller("HeaderController",["$rootScope","$scope","$interval","$location",HeaderController]);
 	
 }());

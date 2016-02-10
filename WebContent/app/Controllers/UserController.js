@@ -2,7 +2,7 @@
 
 	var app = angular.module("YTapp");
 	
-	var UserController = function($scope,$routeParams,$sce,YTservice,YTchannel){
+	var UserController = function($scope,$routeParams,$sce,ytGetService,ytDisplayService){
 		
 		var username = $routeParams.username;
 		checkIfExists();
@@ -10,15 +10,15 @@
 		
 		function getUploads()
 		{
-			YTservice.getUserId(username).then(function(response){
+			ytGetService.getUserId(username).then(function(response){
 				
 				var uid = response.data.items[0].contentDetails.relatedPlaylists.uploads;
 				$scope.list[username]={userId:uid};
-				YTservice.getChannelThumbnail(username).then(function(response){
+				ytGetService.getChannelThumbnail(username).then(function(response){
 					$scope.list[username].channelThumbnail = response.data.items[0].snippet.thumbnails.default.url;
 					//console.log($scope.list);
 				});
-				YTservice.getVideoIds(uid,maxVids).then(function(response){
+				ytGetService.getVideoIds(uid,maxVids).then(function(response){
 					$scope.list[username].vidlist=[];
 					$scope.list[username].thumbnailUrl=[];
 					$scope.list[username].titles=[];
@@ -34,7 +34,7 @@
 
 
 					var userObj = $scope.list[username];
-					YTchannel.display(userObj);
+					ytDisplayService.display(userObj);
 					$scope.current = $scope.list[username];
 					$scope.useful.currentUsername = username;
 				});

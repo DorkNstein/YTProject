@@ -3,7 +3,7 @@
 	
 	var app = angular.module("YTapp");
 	
-	function YTchannel(){
+	function ytDisplayService(){
 		
 		function display(userObject){
 		
@@ -19,6 +19,6 @@
 	};
 	
 	
-	app.factory("YTchannel",YTchannel);
+	app.factory("ytDisplayService",ytDisplayService);
 	
 })();
